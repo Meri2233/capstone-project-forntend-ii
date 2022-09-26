@@ -1,13 +1,544 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-lists/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-calendars/styles/material.css";
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 1px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+  padding: 40px 50px;
+}
+
+.header>p {
+  color: rgb(1, 155, 167);
+  font-weight: bold;
+  font-size: 20px;
+  opacity: 2;
+}
+
+.signin-container,
+.signup-container,
+.patientregister-container,
+.patientdashboard-container,
+.doctordashboard-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 100px;
+}
+
+.passwordreset-container,.resetpage-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 100px;
+  height:500px;
+}
+
+.patientdashboard-container,
+.doctordashboard-container {
+  align-items: flex-start;
+}
+
+.doctordashboard-container {
+  position: relative;
+}
+
+.patientregister-container,
+.patientdashboard-container,
+.doctordashboard-container {
+  padding: 20px 50px;
+}
+
+.appointment-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #F8F9F9;
+  width: 1100px;
+  min-height: 530px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.consultations-container {
+  display: flex;
+  width: 1100px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.signin,
+.signup,
+.patientregister,.passwordreset,.resetpage {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.patientregister {
+  align-items: center;
+}
+
+.registerform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.registerform>button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(1, 155, 167);
+  color: white;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.registerformfillsection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.registerlabel {
+  width: 300px;
+}
+
+.formsectionregister {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 620px;
+}
+
+.formsectionregister>input {
+  width: 410px;
+  height: 40px;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(204, 214, 220);
+}
+
+.signinlayout {
+  background-color: rgb(1, 155, 167);
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+}
+
+.doctorsignin,
+.patientsignin,
+.doctorsignup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  width: 450px;
+}
+
+.redirect {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: rgb(170, 170, 170);
+}
+
+.redirect>h1 {
+  font-size: 50px;
+  color: black
+}
+
+.methods {
+  display: flex;
+  gap: 30px;
+}
+
+.method {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 170px;
+  border: 1px solid rgb(205, 205, 205);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.method:hover {
+  background-color: rgb(1, 155, 167);
+  color: white;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.message>button {
+  background-color: rgb(204, 236, 238);
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  width: 65px;
+  height: 40px;
+}
+
+.tag {
+  font-weight: bold;
+  color: rgb(0, 49, 82);
+}
+
+.formnamesection {
+  display: flex;
+  gap: 20px;
+}
+
+.innerformsection>input {
+  width: 195px;
+  height: 40px;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(204, 214, 220);
+}
+
+.formsection>input {
+  width: 410px;
+  height: 40px;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(204, 214, 220);
+}
+
+.signinsubmit,
+.signupsubmit {
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(1, 155, 167);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.registertext {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.registertext>h3 {
+  color: rgb(0, 49, 82);
+  font-weight: bold;
+}
+
+.appointment-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgb(204, 214, 220);
+}
+
+.appointment-body {
+  display: flex;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border-right: 1px solid rgb(204, 214, 220);
+  min-height: 460px;
+}
+
+.filterssection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.filterssectioncost {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.label {
+  width: 200px;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.doctors {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.country,
+.speciality,
+.qualification,
+#qualifications,
+#countries,
+#specialities,
+#search-doctors {
+  border: 1px solid rgb(204, 214, 220);
+  padding: 10px;
+  width: 200px;
+}
+
+.myappointments {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+  padding: 20px;
+  height: 530px;
+  width: 270px;
+  border-right: 1px solid rgb(204, 214, 220);
+}
+
+.myappointments>button {
+  background-color: transparent;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.upcoming {
+  border-bottom: 1px solid rgb(204, 214, 220);
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.doctor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-right: 1px solid rgb(204, 214, 220);
+  border-bottom: 1px solid rgb(204, 214, 220);
+  text-align: center;
+  height: 180px;
+  width: 180px;
+  padding: 10px;
+}
+
+.doctor>img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.expert {
+  font-size: 12px;
+}
+
+.rating {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.profileedit {
+  display: none;
+  position: absolute;
+  background-color: #F8F9F9;
+  right: 290px;
+  min-width: 800px;
+  min-height: 500px;
+  gap: 10px;
+  padding:15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.profileeditform {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 15px;
+}
+.formeditsection{
+  display:flex;
+}
+.formeditsection>input{
+  width:620px;
+}
+.formeditsection>select{
+  width:620px;
+}
+.profilephoto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 815px;
+  height: 150px;
+}
+
+.schedule-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #F8F9F9;
+  width: 1100px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 4px;
+  padding: 15px;
+  gap: 20px;
+}
+
+.time-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+  min-height: 350px;
+  gap: 20px;
+}
+
+.times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.time {
+  background-color: gainsboro;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  height: 45px;
+  cursor: pointer;
+}
+
+.time:hover {
+  background-color: rgb(1, 155, 167);
+  color: white;
+}
+
+.schedule-container>button{
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(52,175,185);
+  color:white;
+  align-self: center;
+}
+.schedule-container>p{
+  font-weight: bold;
+}
+.schedule-container>input{
+  width:1000px;
+  height:35px;
+  border-radius: 5px;
+  padding:8px;
+  border:1px solid rgb(204, 214, 220)
+}
+.passwordreset>button{
+  padding:8px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(1, 155, 167);
+  color:white;
+  font-weight: bold;
+}
+.passwordreset-container>p{
+  font-weight: bold;
+  color:rgb(52,175,185)
+}
+.resetpage>button{
+  padding:8px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(1, 155, 167);
+  color:white;
+  font-weight: bold;
+}
+.consultation>button{
+  padding:8px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(1, 155, 167);
+  color:white;
+  font-weight: bold;
+}
+.resetpage-container>h3{
+  color:rgb(52,175,185)
+}
+.consultations{
+  display:flex;
+  flex-direction: column;
+  gap:30px;
+  min-width:1000px;
+  padding:15px;
+}
+.consultation{
+  display:flex;
+  gap:10px;
+  flex-direction: column;
+  border:1px solid rgb(204, 214, 220);
+  padding:10px;
+}
+.docnotes{
+  display:none;
+  position:absolute;
+  right:400px;
+  padding:20px;
+  background-color:rgb(1, 155, 167) ;
+  color:white;
 }
