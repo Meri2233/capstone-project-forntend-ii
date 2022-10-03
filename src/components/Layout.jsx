@@ -6,7 +6,7 @@ export default function Layout() {
         <div className='layout'>
             <div className="header">
                 <p>DocSeek</p>
-                <button className='signinlayout'><Link style={{ textDecoration: 'none', color: "white" }} to="/signinpatient">Sign In</Link></button>
+                <button className='signinlayout'><Link style={{ textDecoration: 'none', color: "white" }} to="/signinpatient">Sign Out</Link></button>
             </div>
             <Outlet />
         </div>

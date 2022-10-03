@@ -93,12 +93,12 @@ export default function Appointments() {
                 <div className="doctors">
                     {doctors.map((el, index) =>
                         <Link key={index} style={{ textDecoration: 'none', color: "black" }} to={`/patient/booking/:${el.id}`} >
-                            <div className="doctor">
+                            {el.imageUrl !== null ? <div className="doctor">
                                 <img src={el.imageUrl} alt="profile-image" />
                                 <p className='name'>Dr. {el.name}</p>
                                 <p className='expert'>Expert at {el.speciality[0]}</p>
                                 <p className='rating'>Rating: {el.ratings}</p>
-                            </div>
+                            </div> : null}
                         </Link>
                     )}
                 </div>
