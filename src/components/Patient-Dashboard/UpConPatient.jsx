@@ -17,19 +17,22 @@ export default function UpConPatient() {
   }, [])
 
   return (
-    <div className='consultations-container'>
+    <div className='w-5/6'>
       {upcomingConsultations.length !== 0 ?
-        <div className='consultations'>
-          <h1>Upcoming Consultations</h1>
+        <div className='consultations flex flex-col gap-3'>
+          <h1 className='text-3xl font-bold'>Upcoming Consultations</h1>
           {upcomingConsultations.map((el, index) => {
-            return <div key={index} className="consultation">
+            return <div key={index} className="consultation border-2 border-black p-3 rounded">
               <p>Consultation With: {el.docname}</p>
               <p>Consultation Time: {el.date}({el.time})</p>
-              <p>Consultation Cost: {el.price}</p>
+              <p>Consultation Cost: Rs. {el.price}</p>
             </div>
           })}
         </div> :
-        <p>No consultations scheduled. Schedule one now.</p>
+        <div className='w-5/6 flex justify-center items-center'>
+          <p>No consultations scheduled. Schedule one now.</p>
+        </div>
+
       }
     </div>
   )

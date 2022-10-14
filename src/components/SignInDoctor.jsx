@@ -34,51 +34,60 @@ export default function SignInDoctor() {
     }
 
     return (
-        <div className="signin-container">
+        <div className="flex justify-between items-center w-full h-full">
 
-            <div className="redirect">
-                <h1>Sign In</h1>
-                <p>Select your signing in methods from the following:</p>
-                <div className="methods">
-                    <Link style={{ textDecoration: 'none', color: "rgb(170,170,170)",fontWeight:"bold" }} to="/">
-                        <div className="method">
-                            <p>Patient</p>
-                            <p>Sign In</p>
-                        </div>
-                    </Link>
-                    <Link style={{ textDecoration: 'none', color: "rgb(170,170,170)", fontWeight:"bold" }} to="/signindoctor">
-                        <div className="method">
-                            <p>Doctor</p>
-                            <p>Sign In</p>
-                        </div>
-                    </Link>
+            <div className="flex flex-col justify-center items-center gap-5 bg-doc-page bg-no-repeat bg-center bg-cover h-full w-2/3">
+                <div className='text-black p-3 flex flex-col gap-3  rounded shadow-xl bg-clear'>
+                    <h1 className='text-4xl font-bold'>Sign In</h1>
+                    <p>Select your signing in methods from the following:</p>
+                    <div className="flex gap-8">
+                        <Link style={{ textDecoration: 'none', color: "black", fontWeight: "bold" }} to="/">
+                            <div className="flex flex-col justify-center items-center border-2 border-solid border-black p-4 w-150 h-28 rounded-md hover:bg-gainsboro hover:text-black hover:border-transparent">
+                                <p>Patient</p>
+                                <p>Sign In</p>
+                            </div>
+                        </Link>
+                        <Link style={{ textDecoration: 'none', color: "black", fontWeight: "bold" }} to="/signindoctor">
+                            <div className="flex flex-col justify-center items-center border-2 border-solid border-black p-4 w-150 h-28 rounded-md hover:bg-gainsboro hover:text-black hover:border-transparent">
+                                <p>Doctor</p>
+                                <p>Sign In</p>
+                            </div>
+                        </Link>
+                    </div>
                 </div>
             </div>
 
-            <div className="doctorsignin">
-                <h1 className='title'>Doctor Sign In</h1>
-                <form className='signin' onSubmit={(e) => {
-                    e.preventDefault();
-                    doctorSignIn(e)
-                }}>
-                    <div className="formsection">
-                        <label className='tag' htmlFor="email">Email*</label><br />
-                        <input type="email" name='email' className='email' placeholder='Email' />
-                    </div>
-                    <div className="formsection">
-                        <label className='tag' htmlFor="password">Password*</label><br />
-                        <input type="password" name='password' className='password' placeholder='password' />
-                    </div>
-                    <p> <Link style={{ textDecoration: 'none', color: "rgb(1,160,172)" }} to="/resetpassword">Forgot your Password?</Link></p>
-                    <button className='signinsubmit' type='submit'>Sign In</button>
-                </form>
-                <div className="message">
-                    <div className="registertext">
-                        <h3>Register as a Doctor?</h3>
-                        <p>Create an account with us in order to get started</p>
-                    </div>
-                    <button><Link style={{ textDecoration: 'none', color: "rgb(1,160,172)" }} to="/signup">Start</Link></button>
+            <div className="flex flex-col p-6 gap-3 w-96 pr-9 h-full w-1/3">
+                <div className="flex bg-slate-700 justify-between h-1/8">
+                    <p className='text-teal font-bold text-xl'>DocSeek</p>
+                    <button className='bg-teal p-2 rounded hover:bg-teal-700'><Link style={{ textDecoration: 'none', color: "white" }} to="/signinpatient">Sign In</Link></button>
                 </div>
+                <div className='flex h-full flex-col gap-3 justify-center'>
+                    <h1 className='text-4xl font-bold'>Doctor Sign In</h1>
+                    <form className='flex flex-col gap-2' onSubmit={(e) => {
+                        e.preventDefault();
+                        doctorSignIn(e)
+                    }}>
+                        <div className="formsection flex flex-col">
+                            <label className='tag' htmlFor="email">Email*</label>
+                            <input type="email" name='email' className='email border-silver border-2 rounded p-2' placeholder='Email' />
+                        </div>
+                        <div className="formsection flex flex-col">
+                            <label className='tag' htmlFor="password">Password*</label>
+                            <input type="password" name='password' className='password border-silver border-2 rounded p-2' placeholder='password' />
+                        </div>
+                        <p> <Link style={{ textDecoration: 'none', color: "rgb(1,160,172)" }} to="/resetpassword">Forgot your Password?</Link></p>
+                        <button className='signinsubmit bg-teal p-2 rounded text-white' type='submit'>Sign In</button>
+                    </form>
+                    <div className="message flex justify-between">
+                        <div className="registertext flex flex-col justify-center items-center w-80 text-center">
+                            <h3 className='text-xl font-bold'>Register as a Doctor?</h3>
+                            <p>Create an account with us in order to get started</p>
+                        </div>
+                        <button><Link style={{ textDecoration: 'none', color: "rgb(1,160,172)" }} to="/signup">Start</Link></button>
+                    </div>
+                </div>
+
             </div>
 
         </div>
